@@ -25,7 +25,7 @@ manifest:
 
     - name: zmk-module-runtime-input-processor
       remote: cormoran
-      revision: main
+      revision: change-dependency
 
     - name: zmk-behavior-runtime-sensor-rotate
       remote: cormoran
