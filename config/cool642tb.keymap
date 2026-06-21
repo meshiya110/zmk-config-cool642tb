@@ -1,12 +1,11 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
-
 #include <input/processors.dtsi>
 #include <input/processors/runtime-input-processor.dtsi>
 #include <behaviors/runtime-sensor-rotate.dtsi>
 #include <behaviors/battery_history_request.dtsi>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 100
 #define MOUSE 4
@@ -32,16 +31,6 @@
             key-positions = <0 1>;
         };
 
-        comb3 {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <22 23>;
-        };
-
-        comb4 {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <9 8>;
-        };
-
         comb5 {
             bindings = <&bt BT_CLR_ALL>;
             key-positions = <9 8>;
@@ -49,14 +38,14 @@
             layers = <2>;
         };
 
-        MS_BTN1_ {
-            bindings = <&mkp MB1>;
-            key-positions = <38 39>;
+        en {
+            bindings = <&kp LANG2>;
+            key-positions = <12 13>;
         };
 
-        MS_BTN2_ {
-            bindings = <&mkp MB2>;
-            key-positions = <38 37>;
+        ja {
+            bindings = <&kp LANG1>;
+            key-positions = <18 19>;
         };
     };
 
@@ -87,22 +76,21 @@
             tap-ms = <20>;
         };
 
-rsr_vol: rsr_vol {
-        compatible = "zmk,behavior-runtime-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        tap-ms = <20>;
-        cw-binding = <&kp C_VOL_DN>;
-        ccw-binding = <&kp C_VOL_UP>;
-    };
+        rsr_vol: rsr_vol {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&kp C_VOL_DN>;
+            ccw-binding = <&kp C_VOL_UP>;
+        };
 
-    rsr_pg: rsr_pg {
-        compatible = "zmk,behavior-runtime-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        tap-ms = <20>;
-        cw-binding = <&kp PG_UP>;
-        ccw-binding = <&kp PAGE_DOWN>;
-    };
-
+        rsr_pg: rsr_pg {
+            compatible = "zmk,behavior-runtime-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            cw-binding = <&kp PG_UP>;
+            ccw-binding = <&kp PAGE_DOWN>;
+        };
     };
 
     // エンコーダー：キー
@@ -151,10 +139,10 @@ rsr_vol: rsr_vol {
 
         default_layer {
             bindings = <
-&kp Q       &kp W    &kp E             &kp R         &kp T                                                      &kp Y          &kp U  &kp I      &kp O       &kp P
-&kp A       &kp S    &kp D             &kp F         &kp G         &to 1                 &kp MINUS              &kp H          &kp J  &kp K      &kp L       &kp ENTER
-&kp Z       &kp X    &kp C             &kp V         &kp B         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N          &kp M  &kp COMMA  &kp PERIOD  &kp SLASH
-&kp ESCAPE  &kp TAB  &kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &lt 1 SPACE           &lt 2 SPACE            &kp BACKSPACE                                &kp LEFT_SHIFT
+&kp Q       &kp W    &kp E             &kp R         &kp T                                      &kp Y          &kp U  &kp I      &kp O       &kp P
+&kp A       &kp S    &kp D             &kp F         &kp G         &to 1           &kp MINUS    &kp H          &kp J  &kp K      &kp L       &kp ENTER
+&kp Z       &kp X    &kp C             &kp V         &kp B         &kp LEFT_ARROW  &kp RIGHT    &kp N          &kp M  &kp COMMA  &kp PERIOD  &kp SLASH
+&kp ESCAPE  &kp TAB  &kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &lt 1 SPACE     &lt 2 SPACE  &kp BACKSPACE                                &kp LEFT_SHIFT
             >;
 
             sensor-bindings = <&scroll_move_y>;
@@ -173,10 +161,10 @@ rsr_vol: rsr_vol {
 
         NUM {
             bindings = <
-&kp F1        &kp F2        &kp F3             &kp F4         &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9           &kp F10
-&kp AT_SIGN   &kp SQT       &kp DOUBLE_QUOTES  &kp SEMICOLON  &kp COLON     &mo 1           &kp INT_KATAKANAHIRAGANA  &kp LEFT        &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT        &kp ENTER
-&kp Z         &kp X         &kp C              &kp V          &kp B         &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp LC(SPACE)   &kp RG(SPACE)   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp SLASH
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2       &studio_unlock &kp LEFT_ALT  &kp UNDERSCORE  &none                     &bt BT_CLR_ALL                                                   &kp LEFT_SHIFT
+&kp F1        &kp F2        &kp F3             &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9           &kp F10
+&kp AT_SIGN   &kp SQT       &kp DOUBLE_QUOTES  &kp SEMICOLON   &kp COLON     &mo 1           &kp INT_KATAKANAHIRAGANA  &kp LEFT        &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT        &kp ENTER
+&kp Z         &kp X         &kp C              &kp V           &kp B         &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp LC(SPACE)   &kp RG(SPACE)   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp SLASH
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2       &studio_unlock  &kp LEFT_ALT  &kp UNDERSCORE  &none                     &bt BT_CLR_ALL                                                   &kp LEFT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
