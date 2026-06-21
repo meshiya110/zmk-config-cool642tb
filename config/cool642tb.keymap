@@ -47,6 +47,16 @@
             bindings = <&kp LANG1>;
             key-positions = <18 19>;
         };
+
+        wl {
+            bindings = <&kp LC(LG(LEFT_ARROW))>;
+            key-positions = <24 25>;
+        };
+
+        wr {
+            bindings = <&kp LC(LG(RIGHT))>;
+            key-positions = <30 31>;
+        };
     };
 
     macros {
