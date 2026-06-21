@@ -1,9 +1,9 @@
 manifest:
-  remotes:
-    - name: cormoran
-      url-base: https://github.com/cormoran
-    - name: badjeff
-      url-base: https://github.com/badjeff
+remotes:
+  - name: cormoran
+    url-base: https://github.com/cormoran
+  - name: meshiya110
+    url-base: https://github.com/meshiya110
 
   projects:
     - name: zmk
@@ -11,9 +11,9 @@ manifest:
       revision: v0.3-branch+dya
       import: app/west.yml
 
-    - name: zmk-module-ble-management
-      remote: cormoran
-      revision: main
+- name: zmk-module-ble-management
+  remote: meshiya110
+  revision: main
 
     - name: zmk-module-battery-history
       remote: cormoran
