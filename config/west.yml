@@ -1,9 +1,11 @@
 manifest:
-remotes:
-  - name: cormoran
-    url-base: https://github.com/cormoran
-  - name: meshiya110
-    url-base: https://github.com/meshiya110
+  remotes:
+    - name: cormoran
+      url-base: https://github.com/cormoran
+    - name: meshiya110
+      url-base: https://github.com/meshiya110
+    - name: badjeff
+      url-base: https://github.com/badjeff
 
   projects:
     - name: zmk
@@ -11,9 +13,9 @@ remotes:
       revision: v0.3-branch+dya
       import: app/west.yml
 
-- name: zmk-module-ble-management
-  remote: meshiya110
-  revision: main
+    - name: zmk-module-ble-management
+      remote: meshiya110
+      revision: main
 
     - name: zmk-module-battery-history
       remote: cormoran
@@ -31,7 +33,6 @@ remotes:
       remote: cormoran
       revision: main
 
-    # Optional: PMW3610 driver
     - name: zmk-pmw3610-driver
       remote: badjeff
       revision: zmk-0.3
